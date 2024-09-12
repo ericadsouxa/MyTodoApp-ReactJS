@@ -33,10 +33,10 @@ function App() {
 
   return (
     <>
-    
-      <div className="flex flex-col items-center justify-center">
-        <h1>My Todo</h1>
-        <p>Manage task with ease</p>
+    <div class="relative flex h-16 items-center justify-between">
+      <h1>Welcome to my Todo App</h1></div>
+      <p>Enter a Todo</p>    
+    <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-2">
         <input
           type="text"
           value={todo}
@@ -50,13 +50,13 @@ function App() {
               addTodo();
               setTodo("");
             } else {
-              alert("Please enter something");
+              alert("Cannot add empty todo");
             }
           }}
         >
           Add
         </button>
-        <h1 className="text-3xl font-bold">Todo List</h1>
+        <h1 className="text-3xl">Todo List</h1>
         <div className="flex flex-col">
           {todoList.map((todo) => {
             return (
@@ -69,7 +69,7 @@ function App() {
                 {todo.title}
                 <input
                   type="checkbox"
-                  className="ml-5"
+                  className="ml-5 h-5 w-5"
                   checked={todo.completed}
                   onChange={() => toggleComplete(todo.id)}
                 />
@@ -79,7 +79,7 @@ function App() {
                     setTodoList(todoList.filter((t) => t.id !== todo.id))
                   }
                 >
-                  Delete
+                  Remove
                 </button>
               </div>
             );
